@@ -1,15 +1,35 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
+
 
 package com.mycompany.funciontpi_equipo9;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.Scanner;
 
 /**
  *
  * @author amdsa
  */
 public class FuncionTPI_equipo9 {
-
+    
+    //METODOS STATICOS
+    
+    public static Object MenuGenerico(List<Optional> Lista){
+        
+        int opcion= 0;
+        for(Optional O:Lista){
+         
+            System.out.println(opcion+1+"- "+O.getNombre());
+            
+            
+        }
+        Scanner scan = new Scanner(System.in);
+        scan.nextInt();
+        
+        return Lista.get(opcion);
+        
+        
+        
     public static void main(String[] args) {
         System.out.println("Hello World!");
     }

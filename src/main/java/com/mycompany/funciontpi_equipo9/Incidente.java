@@ -1,8 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.mycompany.funciontpi_equipo9;
+
+import java.util.List;
 
 /**
  *
@@ -10,10 +9,100 @@ package com.mycompany.funciontpi_equipo9;
  */
 public class Incidente {
     
-    public Estado Estado = new EstadoInicial();
+    public Estado estado = new EstadoInicial();
     
     public List<Problemas> ListProblemas;
-    public List<Tecnicos> ListTecnicos;
+    
+    public List<Tecnico> ListTecnicos;
+    
+    
+    
+    
+
+    public List<Problemas> getListProblemas() {
+        return ListProblemas;
+    }
+    
+    
+    
+
+    public List<Tecnico> getListTecnicos() {
+        return ListTecnicos;
+    }
+
+    
+  
+
+    
+    public void setListProblemas(<any> ListProblemas) {
+        this.ListProblemas = ListProblemas;
+    }
+
+    public <any> getListTecnicos() {
+        return ListTecnicos;
+    }
+
+    public void setListTecnicos(<any> ListTecnicos) {
+        this.ListTecnicos = ListTecnicos;
+    }
+    
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public <any> getListProblemas() {
+        return ListProblemas;
+    }
+
+   
+    
+    
+
+    void SiguienteEstado(EstadoProcesando estadoProcesando) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
+    
+    public void CambiarEstado(Estado estado){
+    
+    this.estado=estado;
+
+    
+}
+
+public void SiguienteEstado(){
+    this.Estado.ProximoEstado(this);
+    
+    
+}
+    
+    
+    
+    //METODOS
+    public List<Tecnico> BuscarTecnicos(List<Tecnico> LTecnicos){
+        List<Especialidad> ListaEP = new ArrayList<Especialidad>();
+        for(Problema P:this.ListaProblemas){
+            for(Especialidad E:P.getEspecialidades()){
+                if(!ListaEP.contains(E)){
+                    ListaEP.add(E);
+                }
+            }
+        }
+        List<Tecnico> TecnicosEncontrados = new ArrayList<Tecnico>();
+        
+        for(Tecnico T:LTecnicos){
+            for(Especialidad Esp:T.getEspecialidades()){
+                if(ListaEP.contains(Esp)){
+                    TecnicosEncontrados.add(T);
+                }
+            }
+        }
+        
+            
+        return TecnicosEncontrados;
+    }
+    
     
 }
 //CONSTRUIR LISTA DE ESPECIALIDADES DE PROBLEMAS
@@ -63,7 +152,15 @@ public List<Especialidad> ChequearListas(List<Problemas> Problemas, List<tecnico
     }    
   }
 
+/*
 public void CambiarEstado(){
    List<Especialidades> EspecialidadesSinEncontrar = ChequearListas (this.ListProblemas, this.ListTecnicos);
    
 }
+
+
+
+
+*/
+
+
